@@ -1,7 +1,8 @@
 # Data Preprocessing Template
 
 import pandas as pd
-from sklearn.preprocessing import Imputer, LabelEncoder, OneHotEncoder
+from sklearn.preprocessing import Imputer, LabelEncoder, OneHotEncoder, StandardScaler
+from sklearn.cross_validation import train_test_split
 
 
 # Importing the dataset
@@ -33,3 +34,12 @@ X = oneHotEncoder.fit_transform(X).toarray()
 
 labelEncoder_y= LabelEncoder()
 y = labelEncoder_y.fit_transform(y)
+
+#Splitting the dataset into the Training set and Test set
+'''20% chosen as our test observations'''
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+
+# Feature scaling
+scale_X = StandardScaler()
+X_train = scale_X.fit_transform(X_train)
+X_test = scale_X.transform(X_test)
