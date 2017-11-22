@@ -11,7 +11,18 @@ X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 3].values
 
 # Taking care of missing data
+'''The imputation strategy.
+ 
+    - If "mean", then replace missing values using the mean along
+      the axis.
+    - If "median", then replace missing values using the median along
+      the axis.
+    - If "most_frequent", then replace missing using the most frequent
+      value along the axis.
+ '''
+ 
 from sklearn.preprocessing import Imputer
+
 imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
 imputer = imputer.fit(X[:, 1:3])
 X[:, 1:3] = imputer.transform(X[:, 1:3])
