@@ -2,7 +2,7 @@
 library(caTools)
 # Importing the dataset
 dataset = read.csv('Data.csv')
-
+#dataset = dataset[, 2:3]
 
 #Splitting the dataset into the Training set and Test set using caTools
 
