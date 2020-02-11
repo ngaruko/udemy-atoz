@@ -104,3 +104,6 @@ ENV/
 *.zip
 *.jpg
 *.csv
+
+#other
+.DS_Store/
